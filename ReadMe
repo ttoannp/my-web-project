@@ -1,0 +1,117 @@
+#- Hệ Thống Quản Lý & Phân Tích Đề Thi #
+
+Ứng dụng web hỗ trợ tạo, quản lý và lưu trữ dữ liệu đề thi trực tuyến.
+Hệ thống được thiết kế theo hướng tối ưu cấu trúc dữ liệu và phục vụ khai thác, phân tích dữ liệu trong tương lai (BI-ready).
+
+#- Mục tiêu dự án #
+
+Chuẩn hóa cấu trúc dữ liệu đề thi
+
+Thiết kế mô hình quan hệ tối ưu cho truy vấn
+
+Xây dựng API phục vụ thu thập và khai thác dữ liệu
+
+Tạo nền tảng cho việc phân tích hiệu suất bài thi
+
+#- Chức năng chính #
+
+Tạo đề thi gồm nhiều câu hỏi
+
+Hỗ trợ câu hỏi trắc nghiệm (MCQ)
+
+Lưu trữ dữ liệu theo mô hình quan hệ (Exam – Question – Option)
+
+Xác thực người dùng (JWT)
+
+Cung cấp RESTful API phục vụ khai thác dữ liệu
+
+#- Kiến trúc hệ thống #
+
+Backend được tổ chức theo kiến trúc phân tầng:
+
+Controller → Repository → ORM (SQLAlchemy) → Database
+
+Controller: Nhận và xử lý request từ client
+
+Repository: Thực hiện thao tác dữ liệu và logic xử lý
+
+ORM: Mapping giữa object và bảng dữ liệu
+
+Database: Lưu trữ dữ liệu quan hệ
+
+Thiết kế này giúp tách biệt rõ:
+
+Tầng xử lý nghiệp vụ
+
+Tầng truy xuất dữ liệu
+
+Tầng trình bày
+
+#- Thiết kế dữ liệu (Data Modeling) #
+
+Hệ thống sử dụng mô hình quan hệ:
+
+Exam
+
+Question
+
+Option
+
+Quan hệ:
+
+1 Exam → N Question
+
+1 Question → N Option
+
+Cấu trúc được thiết kế để:
+
+Dễ dàng truy vấn tổng hợp
+
+Phân tích số lượng câu hỏi
+
+Tính toán điểm
+
+Thống kê hiệu suất bài thi
+
+- Công nghệ sử dụng
+Backend
+
+Flask
+
+SQLAlchemy ORM
+
+MySQL
+
+Frontend
+
+Next.js (TypeScript)
+
+Axios
+
+#- Ví dụ API – Tạo đề thi #
+
+POST /api/exams/create
+
+API nhận dữ liệu JSON gồm:
+
+title
+
+duration
+
+danh sách câu hỏi
+
+danh sách đáp án
+
+Thiết kế API tuân thủ RESTful, dễ tích hợp với hệ thống BI hoặc dashboard phân tích sau này.
+
+#- Kiến thức & kỹ năng áp dụng #
+
+Thiết kế cơ sở dữ liệu quan hệ
+
+Chuẩn hóa dữ liệu
+
+Xây dựng API phục vụ hệ thống dữ liệu
+
+Tối ưu luồng xử lý dữ liệu nhiều tầng
+
+Làm việc với ORM và transaction
